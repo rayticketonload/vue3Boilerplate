@@ -1,0 +1,22 @@
+{
+  "name": "project-evo",
+  "version": "0.1.0",
+  "author": "weychain_Fed",
+  "description": "vue3 boilerplate",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host --config config/vite.config.js",
+    "build": "vite build --config config/vite.config.js",
+    "serve": "vite preview --host"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "chalk": "^4.1.1",
+    "vite": "^2.3.7"
+  }
+}
