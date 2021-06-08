@@ -21,9 +21,9 @@ function noteProcess(command, mode, modeAfter) {
 	} else {
 		modeAfterResult = `${mode}（没变化）`;
 	}
-	console.log(chalk.blueBright.italic('\n' + `  ${warning(`执行`)} ${command} ${warning(`命令`)}${loading}  ` + '\n'));
-	console.log(chalk.blueBright.italic(`  ${warning(`运行`)} ${mode} ${warning(`模式`)}${loading}  ` + '\n'));
-	console.log(chalk.blueBright.italic(`  ${warning(`运行模式标签`)} ${mode} ${warning(`置换为`)} ${modeAfterResult}${loading}  ` + '\n'));
+	console.log(chalk.blueBright.italic('\n' + `  ${warning(`执行`)} ${command} ${warning(`类型命令`)}${loading}  ` + '\n'));
+	console.log(chalk.blueBright.italic(`  ${warning(`运行`)} ${mode} ${warning(`开发模式`)}${loading}  ` + '\n'));
+	console.log(chalk.blueBright.italic(`  ${warning(`开发模式标签`)} ${mode} ${warning(`置换为`)} ${modeAfterResult}${loading}  ` + '\n'));
 }
 
 export default ({ command, mode }) => {
