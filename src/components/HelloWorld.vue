@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ mode }}</h1>
 
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank">
@@ -17,13 +17,18 @@
 </template>
 
 <script setup>
-import { defineProps, reactive } from 'vue'
+import { defineProps, onMounted, reactive } from 'vue'
+
+onMounted (() => {
+	console.log('env', import.meta.env);
+})
 
 defineProps({
   msg: String
 })
 
 const state = reactive({ count: 0 })
+const mode = import.meta.env.MODE
 </script>
 
 <style scoped>
