@@ -4,8 +4,8 @@ import i18n from '/@I18N';
 import cookie from 'js-cookie';
 import router from '../router';
 import whitelist from './white-list';
-import { STORAGE_CURRENT_USER_INFO, STORE_TYPE, ROUTE_NAME, LOGIN_COOKIE_KEY } from '@HELPER/const';
-import { Message } from 'element-ui';
+import { STORAGE_CURRENT_USER_INFO, STORE_TYPE, ROUTE_NAME, LOGIN_COOKIE_KEY } from '/@HELPER/global';
+// import { Message } from 'element-ui';
 
 const storage = localStorage;
 const { LOGOUT, SET_GLOBAL_LOADING } = STORE_TYPE;
@@ -58,13 +58,13 @@ export default {
 				if (code === 301 || code === 300 || code === 403) {
 					// 判断后台接口是否来自支付组
 					if (apiType === 'pay') {
-						Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
+						// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
 						store.commit(SET_GLOBAL_LOADING, false);
 
 						axios.defaults.API_TYPE = '';
 						return Promise.reject(response.data);
 					} else {
-						Message.error({ message: i18n.t('deng-lu-yan-zheng-shi-bai-qing-zhong-xin-deng-lu') });
+						// Message.error({ message: i18n.t('deng-lu-yan-zheng-shi-bai-qing-zhong-xin-deng-lu') });
 
 						// 清掉所有鉴权相关标记
 						store.commit(LOGOUT);
@@ -91,12 +91,12 @@ export default {
 						}
 						// 判断后台接口是否来自支付组
 						if (apiType === 'pay') {
-							Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
+							// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
 							store.commit(SET_GLOBAL_LOADING, false);
 							axios.defaults.API_TYPE = '';
 							return Promise.reject(response.data);
 						} else {
-							Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${data}` });
+							// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${data}` });
 							store.commit(SET_GLOBAL_LOADING, false);
 							return Promise.reject(response.data);
 						}
@@ -129,7 +129,7 @@ export default {
 					}
 				}
 				store.commit(SET_GLOBAL_LOADING, false);
-				Message.error({ message: `status: ${status}, ${i18n.t('xin-xi')}: ${i18n.t('qing-qiu-chao-shi-huo-wei-lian-wang-qing-jian-cha-wang-luo-lian-jie')}` });
+				// Message.error({ message: `status: ${status}, ${i18n.t('xin-xi')}: ${i18n.t('qing-qiu-chao-shi-huo-wei-lian-wang-qing-jian-cha-wang-luo-lian-jie')}` });
 				return Promise.reject(err);
 			},
 		);

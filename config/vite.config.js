@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import chalk from 'chalk'
 import { resolve } from "path";
-import global from '../src/helper/global'
+import { ENV_DEV_FLAG } from '../src/helper/global'
 
 
 // alias
@@ -38,6 +38,7 @@ const viteDefaultConfig = defineConfig(
 			alias: {
 				'/@': pathResolve('src'),
 				'/@API': resolve('src/api'),
+				'/@STORE': resolve('src/store'),
 				'/@HELPER': resolve('src/helper'),
 				'/@COMPONENTS': resolve('src/components'),
 				'/@VIEWS': resolve('src/views'),
@@ -54,10 +55,10 @@ export default ({ command, mode }) => {
 	switch (command) {
 		case 'serve':
 			if (mode === 'development') {
-				noteProcess(command, mode, global.ENV_DEV_FLAG);
+				noteProcess(command, mode, ENV_DEV_FLAG);
 				const viteServeDevConfig = defineConfig(
 					{
-						mode: global.ENV_DEV_FLAG,
+						mode: ENV_DEV_FLAG,
 					}
 				)
 				Object.assign(viteFinalConfig, viteDefaultConfig, viteServeDevConfig);
