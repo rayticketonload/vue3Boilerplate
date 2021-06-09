@@ -1,15 +1,16 @@
 import { STORE_TYPE } from '/@HELPER/global';
+import nested from './nested'
 
 const { SET_BREADCRUMB, SET_DEFAULT_PANEL_TAB_NEED_OR_NOT, SET_DEFAULT_PANEL_TAB, SET_CURRENT_NAV, SET_GLOBAL_LOADING, SET_MODAL_FILTER } = STORE_TYPE;
 
-const state = {
-	breadcrumb: [],
+const state = () => ({
+  breadcrumb: [],
 	needDefaultPanelTab: true,
 	defaultPanelTab: [],
 	currentRoutePath: '',
 	globalLoading: false,
 	modalFilter: false,
-};
+})
 
 const mutations = {
 	[SET_BREADCRUMB]: (state, payload) => {
@@ -38,6 +39,10 @@ const mutations = {
 };
 
 export default {
+	namespaced: true,
 	state,
 	mutations,
+	modules: {
+    nested
+  }
 };

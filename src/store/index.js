@@ -1,13 +1,14 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore, createLogger } from 'vuex'
 import profile from './modules/profile';
 import component from './modules/component';
 
-Vue.use(Vuex);
+// const debug = process.env.NODE_ENV !== 'production'
 
-export default new Vuex.Store({
-	modules: {
-		profile,
-		component,
-	},
-});
+export default createStore({
+  modules: {
+    profile,
+    component
+  },
+  // strict: debug,
+  // plugins: debug ? [createLogger()] : []
+})

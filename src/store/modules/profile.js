@@ -1,5 +1,6 @@
 import api from '/@API';
 import cookie from 'js-cookie';
+import nested from './nested'
 import { STORE_TYPE, STORAGE_CURRENT_USER_INFO, LOGIN_COOKIE_KEY, ROUTE_NAME } from '/@HELPER/global';
 const storage = localStorage;
 const { RN_HOME } = ROUTE_NAME;
@@ -15,8 +16,8 @@ const {
 	SET_PERMISSIONS_FULL,
 } = STORE_TYPE;
 
-const state = {
-	isLogin: false,
+const state = () => ({
+  isLogin: false,
 	userId: null,
 	userName: null,
 	email: null,
@@ -24,7 +25,7 @@ const state = {
 	permissions: [],
 	permissionsFull: [],
 	mallProdtypeList: [],
-};
+})
 
 const mutations = {
 	[SET_PERMISSIONS_ROUTER]: (state, payload) => {
@@ -210,7 +211,11 @@ function queryList(arr) {
 }
 
 export default {
+	namespaced: true,
 	state,
 	mutations,
 	actions,
+	modules: {
+    nested
+  }
 };
