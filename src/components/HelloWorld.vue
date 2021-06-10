@@ -19,6 +19,8 @@
 <script>
 import { reactive } from 'vue'
 import api from '/@API';
+import store from '/@STORE';
+import { STORE_TYPE } from '/@HELPER/global';
 
 export default {
 	props: {
@@ -38,6 +40,7 @@ export default {
 
 	methods: {
 		test() {
+			store.commit(`component/${STORE_TYPE.SET_GLOBAL_LOADING}`, true);
 			api.test.testApiGet().then(res => {
 				// console.log(res);
 			});

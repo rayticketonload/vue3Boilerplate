@@ -59,7 +59,7 @@ export default {
 					// 判断后台接口是否来自支付组
 					if (apiType === 'pay') {
 						// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
-						store.commit(SET_GLOBAL_LOADING, false);
+						store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 
 						axios.defaults.API_TYPE = '';
 						return Promise.reject(response.data);
@@ -92,16 +92,17 @@ export default {
 						// 判断后台接口是否来自支付组
 						if (apiType === 'pay') {
 							// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${msg}` });
-							store.commit(SET_GLOBAL_LOADING, false);
+							store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 							axios.defaults.API_TYPE = '';
 							return Promise.reject(response.data);
 						} else {
 							// Message.error({ message: `code: ${code}, ${i18n.t('xin-xi')}: ${data}` });
-							store.commit(SET_GLOBAL_LOADING, false);
+							// store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 							return Promise.reject(response.data);
 						}
 					}
 					// 接口获取成功后重置API_TYPE
+					store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 					axios.defaults.API_TYPE = '';
 					return response.data;
 				}
@@ -123,12 +124,12 @@ export default {
 						});
 					}
 					if (status >= 400) {
-						store.commit(SET_GLOBAL_LOADING, false);
+						store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 						// Message.error({ message: `1status: ${status}, ${i18n.t('xin-xi')}: ${i18n.t('qing-jian-cha-qing-qiu-can-shu')}` });
 						return Promise.reject(err.response);
 					}
 				}
-				store.commit(SET_GLOBAL_LOADING, false);
+				store.commit(`component/${SET_GLOBAL_LOADING}`, false);
 				// Message.error({ message: `status: ${status}, ${i18n.t('xin-xi')}: ${i18n.t('qing-qiu-chao-shi-huo-wei-lian-wang-qing-jian-cha-wang-luo-lian-jie')}` });
 				return Promise.reject(err);
 			},
