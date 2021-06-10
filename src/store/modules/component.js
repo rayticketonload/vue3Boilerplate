@@ -39,10 +39,10 @@ const mutations = {
 };
 
 export default {
-	namespaced: true,
+	// namespaced: true,
 	state,
 	mutations,
-	modules: {
-    nested
-  }
+	// modules: {
+  //   nested
+  // }
 };

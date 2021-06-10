@@ -39,6 +39,7 @@ const viteDefaultConfig = defineConfig(
 				'/@': pathResolve('src'),
 				'/@API': resolve('src/api'),
 				'/@STORE': resolve('src/store'),
+				'/@I18N': resolve('src/i18n'),
 				'/@HELPER': resolve('src/helper'),
 				'/@COMPONENTS': resolve('src/components'),
 				'/@VIEWS': resolve('src/views'),
@@ -59,6 +60,17 @@ export default ({ command, mode }) => {
 				const viteServeDevConfig = defineConfig(
 					{
 						mode: ENV_DEV_FLAG,
+						server: {
+							cors: true,
+          		open: true,
+							proxy: {
+								'/testapi': {
+									target: 'http://10.10.1.196:8108/',
+									changeOrigin: true,
+									rewrite: path => path.replace(/^\/testapi/, '')
+								}
+							}
+						}
 					}
 				)
 				Object.assign(viteFinalConfig, viteDefaultConfig, viteServeDevConfig);

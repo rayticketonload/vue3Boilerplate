@@ -211,11 +211,11 @@ function queryList(arr) {
 }
 
 export default {
-	namespaced: true,
+	// namespaced: true,
 	state,
 	mutations,
 	actions,
-	modules: {
-    nested
-  }
+	// modules: {
+  //   nested
+  // }
 };

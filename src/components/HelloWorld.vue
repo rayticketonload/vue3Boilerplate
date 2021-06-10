@@ -16,19 +16,39 @@
   </p>
 </template>
 
-<script setup>
-import { defineProps, onMounted, reactive } from 'vue'
+<script>
+import { reactive } from 'vue'
+import api from '/@API';
 
-onMounted (() => {
-	console.log('env', import.meta.env);
-})
+export default {
+	props: {
+    msg: {
+      type: String,
+      default: '',
+    }
+  },
 
-defineProps({
-  msg: String
-})
+	data() {
+		return {
+			mode: import.meta.env.MODE,
+			lang: import.meta.env.lang,
+			state: reactive({ count: 0 })
+		};
+	},
 
-const state = reactive({ count: 0 })
-const mode = import.meta.env.MODE
+	methods: {
+		test() {
+			api.test.testApiGet().then(res => {
+				// console.log(res);
+			});
+		}
+	},
+
+	created() {
+		console.log('env', import.meta.env);
+		this.test();
+	},
+}
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
-import store from './store'
-import i18n from './i18n'
+import store from '/@STORE'
+import i18n from '/@I18N';
 import App from './App.vue';
 const app = createApp(App);
 
