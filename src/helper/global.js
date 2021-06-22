@@ -25,6 +25,12 @@ export const LOGIN_COOKIE_KEY = 'CCY4762223D63D4DF1A5C162238CBE366';
 export const STORAGE_CURRENT_USER_INFO = 'PROJECT_EVO_STORAGE_CURRENT_USER_INFO';
 
 // ***
+// 角色
+// ***
+export const ROLE_0 = 0;
+export const ROLE_1 = 1;
+
+// ***
 // vux 类型
 // ***
 export const STORE_TYPE = {

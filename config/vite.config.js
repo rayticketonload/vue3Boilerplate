@@ -38,6 +38,7 @@ const viteDefaultConfig = defineConfig(
 			alias: {
 				'/@': pathResolve('src'),
 				'/@API': resolve('src/api'),
+				'/@ROUTER': resolve('src/router'),
 				'/@STORE': resolve('src/store'),
 				'/@I18N': resolve('src/i18n'),
 				'/@HELPER': resolve('src/helper'),

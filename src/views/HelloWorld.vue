@@ -1,6 +1,10 @@
 <template>
-	{{ mode }}
-  <button type="button" @click="state.count++">count is: {{ state.count }}</button>
+	{{ env }}
+	<br/>
+  <button type="button" @click="state.count++">
+		count is: {{ state.count }}
+	</button>
+
 </template>
 
 <script>
@@ -19,14 +23,13 @@ export default {
 
 	data() {
 		return {
-			mode: import.meta.env.MODE,
-			lang: import.meta.env.lang,
-			state: reactive({ count: 0 })
+			env: import.meta.env,
+			state: reactive({ count: 0 }),
 		};
 	},
 
 	methods: {
-		test() {
+		testRequest() {
 			store.commit(`component/${STORE_TYPE.SET_GLOBAL_LOADING}`, true);
 			api.test.testApiGet().then(res => {
 				// console.log(res);
@@ -35,14 +38,7 @@ export default {
 	},
 
 	created() {
-		console.log('env', import.meta.env);
-		this.test();
+		this.testRequest();
 	},
 }
 </script>
-
-<style scoped>
-a {
-  color: #42b983;
-}
-</style>
