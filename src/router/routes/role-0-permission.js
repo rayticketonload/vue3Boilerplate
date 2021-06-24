@@ -1,4 +1,4 @@
-// import { ROLE_0, ROUTE_NAME } from '/@HELPER/global';
+// import { ROLE_0, ROUTE_NAME } from '@HELPER/const';
 
 // const {
 // 	// 代收管理
@@ -188,6 +188,9 @@
 // const settlementManagement = r => require.ensure([], () => r(require('@VIEWS/role-0/Settlement-management/index.vue')), 'settlementManagement');
 // const settlementAccountManagement = r =>
 // 	require.ensure([], () => r(require('@VIEWS/role-0/Settlement-management/list/Settlement-account-management')), 'settlementAccountManagement');
+
+export default [];
+
 // export default [
 // 	// 报表管理
 // 	{

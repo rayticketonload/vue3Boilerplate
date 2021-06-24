@@ -58,6 +58,7 @@ export const ROUTE_NAME = {
 	RN_HOME: 'home',
 	RN_LOGIN: 'login',
 	RN_NOT_FOUND: 'notFound',
+	RN_TEST: 'test',
 };
 
 // ***

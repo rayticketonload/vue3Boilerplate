@@ -69,6 +69,10 @@ export default ({ command, mode }) => {
 									target: 'http://10.10.1.196:8108/',
 									changeOrigin: true,
 									rewrite: path => path.replace(/^\/testapi/, '')
+								},
+								'/pms': {
+									target: 'https://sx-test.weychain.com:60443/',
+									changeOrigin: true,
 								}
 							}
 						}

@@ -1,5 +1,6 @@
 <template>
-	<section id="login-page-wrap">
+	<div>login</div>
+	<!-- <section id="login-page-wrap">
 		<div class="login-form-container">
 			<div class="sys-name">
 				<div class="login-solgan">
@@ -32,23 +33,16 @@
 				<div class="signup-or-change-password">
 					<span class="login-form-link right">
 						v{{ VERSION }}
-						<!-- 技术支持: xxx-xxxx-xxxx -->
 					</span>
-					<!-- <router-link class="login-form-link left" to="/">
-						{{ $t('zhu-ce') }}
-					</router-link>
-					<router-link class="login-form-link right" to="/">
-						{{ $t('wang-ji-mi-ma') }}
-					</router-link> -->
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-import { STORE_TYPE, VERSION } from '@HELPER/const';
+import { STORE_TYPE, VERSION, ROUTE_NAME } from '/@HELPER/global';
 
 const { LOGIN, GET_PERMISSIONS } = STORE_TYPE;
 
@@ -60,7 +54,6 @@ export default {
 			password: '',
 			errorMsg: null,
 			isDisabled: false,
-			// code: this.$route.query.code,
 		};
 	},
 
@@ -131,7 +124,7 @@ export default {
 
 		async redirect() {
 			this.$router.push({
-				name: this.$ALL_CONST.ROUTE_NAME.RN_HOME,
+				name: ROUTE_NAME.RN_HOME,
 			});
 		},
 	},

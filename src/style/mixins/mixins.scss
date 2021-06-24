@@ -1,0 +1,675 @@
+// 简化动画
+@mixin animation-s($name, $duration, $timing-function, $delay, $iteration-count: 1, $direction: normal, $play-state: running, $fill-mode: both) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-delay: $delay;
+	animation-iteration-count: $iteration-count;
+	animation-direction: $direction;
+	animation-play-state: $play-state;
+	animation-fill-mode: $fill-mode;
+}
+
+// 字符暗色调 + 自定义透明度
+@mixin fontColor-dark($opacity) {
+	color: rgba(51, 51, 51, $opacity);
+}
+
+// 字符明色调 + 自定义透明度
+@mixin fontColor-light($opacity) {
+	color: rgba(255, 255, 255, $opacity);
+}
+
+// 属性过渡
+@mixin transition($property, $duration, $timing-function, $delay) {
+	transition-property: $property;
+	transition-duration: $duration;
+	transition-timing-function: $timing-function;
+	transition-delay: $delay;
+}
+
+// 全围圆角
+@mixin rounded($radius) {
+	border-radius: $radius;
+}
+
+// 单独圆角
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+	border-top-left-radius: $topLeft;
+	border-top-right-radius: $topRight;
+	border-bottom-right-radius: $bottomRight;
+	border-bottom-left-radius: $bottomLeft;
+}
+
+// 外阴影 - 标准
+@mixin outer-shadow($x: 0, $y: 1px, $blur: 2px, $alpha: 0.1) {
+	box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
+}
+// 外阴影 - 自定义
+@mixin outer-shadow-custom($x: 0, $y: 1px, $blur: 2px, $spread: 0, $rgba: rgba(0, 0, 0, 0.1)) {
+	box-shadow: $x $y $blur $spread $rgba;
+}
+
+// 内阴影 - 标准
+@mixin inner-shadow($x: 0, $y: 1px, $blur: 2px, $alpha: 0.4) {
+	box-shadow: inset $x $y $blur rgba(0, 0, 0, $alpha);
+}
+// 内阴影 - 自定义
+@mixin inner-shadow-custom($x: 0, $y: 1px, $blur: 2px, $spread: 0, $rgba: rgba(0, 0, 0, 0.4)) {
+	box-shadow: inset $x $y $blur $spread $rgba;
+}
+
+// 3D转换
+@mixin transform($transform) {
+	transform: $transform;
+}
+
+// 旋转
+@mixin rotate($deg) {
+	@include transform(rotate($deg));
+}
+
+// 缩小放大
+@mixin scale($ratio) {
+	@include transform(scale($ratio));
+}
+
+// xy轴转换
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// 背景盒
+@mixin background-clip($argument: padding-box) {
+	background-clip: $argument;
+}
+
+// 盒渲染类型
+@mixin border-box($sizing: border-box) {
+	box-sizing: $sizing;
+}
+
+// 透明度
+@mixin opacity($opacity: 0.5) {
+	opacity: $opacity;
+}
+
+// 清除浮动
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// 占位符
+@mixin input-placeholder($color: #999) {
+	input::-webkit-input-placeholder {
+		// webkit
+		color: $color;
+	}
+	input:-moz-placeholder {
+		// FF 4 to 18
+		color: $color;
+		opacity: 1;
+	}
+	input::-moz-placeholder {
+		// FF 19+
+		color: $color;
+		opacity: 1;
+	}
+	input:-ms-input-placeholder {
+		// IE 10+
+		color: $color !important;
+	}
+}
+
+// 截断文本
+@mixin text-overflow($display: block) {
+	display: $display;
+	word-wrap: normal; // IE
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+// 多行文本溢出显示省略号(webkit)
+@mixin am-line-clamp($lines, $line-height: 1.3em) {
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $lines; // 显示多少行字
+	overflow: hidden;
+	line-height: $line-height;
+	max-height: $line-height * $lines;
+}
+
+// 视觉(WebKit)
+@mixin tab-focus() {
+	outline: thin dotted;
+	outline: 1px auto -webkit-focus-ring-color; // WebKit
+	outline-offset: -2px;
+}
+
+// 文本隐藏
+@mixin text-hide() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// 强制换行
+@mixin word-wrap() {
+	word-break: break-all;
+	white-space: normal;
+}
+
+// 标准超链接
+@mixin link-standard($color) {
+	text-decoration: none;
+	list-style: none;
+	cursor: pointer;
+	color: $color;
+
+	&:hover,
+	&:active {
+		color: darken($color, 15%);
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+// 定制超链接
+@mixin link-custom($color, $colorHover, $text-decoration) {
+	text-decoration: $text-decoration;
+	list-style: none;
+	cursor: pointer;
+	color: $color;
+
+	&:hover,
+	&:active {
+		color: $colorHover;
+		text-decoration: $text-decoration;
+	}
+
+	&:focus {
+		text-decoration: $text-decoration;
+	}
+}
+
+// 超链接-移动端
+@mixin link-mobile($color) {
+	text-decoration: none;
+	outline: none;
+	color: $color;
+
+	&:active {
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+// 字体发光
+@mixin text-get-light($blur, $opacity) {
+	text-shadow: 0 0 $blur rgba(255, 255, 255, $opacity);
+}
+
+// 字体白阴影
+@mixin text-white-shadow($blur, $opacity) {
+	text-shadow: 1px 1px $blur rgba(255, 255, 255, $opacity);
+}
+
+// 高亮字体
+@mixin highlight-text($color) {
+	color: $color;
+
+	&:hover {
+		color: lighten($color, 20%);
+	}
+}
+
+//样式上下箭头
+@mixin arrow-up-or-down($border-top-or-bottom, $ysize, $xsize, $color: inherit) {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	#{$border-top-or-bottom}: $ysize dashed;
+	#{$border-top-or-bottom}-color: $color;
+	border-right: $xsize solid transparent;
+	border-left: $xsize solid transparent;
+}
+
+// 样式左右箭头
+@mixin arrow-left-or-right($border-left-or-right, $xsize, $ysize, $color: inherit) {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	#{$border-left-or-right}: $xsize dashed;
+	#{$border-left-or-right}-color: $color;
+	border-top: $ysize solid transparent;
+	border-bottom: $ysize solid transparent;
+}
+
+// 尺寸
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+// 方
+@mixin square($size) {
+	@include size($size, $size);
+}
+
+// 可调整大小的文本域
+@mixin resizable($direction: both) {
+	resize: $direction; // 可选: horizontal, vertical, both
+	overflow: auto; // Safari 适配
+}
+
+// Reset filters for IE
+// When you need to remove a gradient background, do not forget to use this to
+// reset the IE filter for IE9 and below.
+// -----------------------------------------------------------------------------
+// @mixin reset-filter() {
+//   filter: e(%('progid:DXImageTransform.Microsoft.gradient(enabled = false)'));
+// }
+
+// Retina 屏幕 图片适配
+@mixin retina-bg-img($file-1x, $file-2x, $width-1x, $height-1x) {
+	background-image: url('${file-1x}');
+	@media only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (min--moz-device-pixel-ratio: 2),
+		only screen and (-o-min-device-pixel-ratio: 2/1),
+		only screen and (min-device-pixel-ratio: 2),
+		only screen and (min-resolution: 192dpi),
+		only screen and (min-resolution: 2dppx) {
+		background-image: url('${file-2x}');
+		background-size: $width-1x $height-1x;
+	}
+}
+
+// 响应式图片
+@mixin img-responsive($display: block) {
+	display: $display;
+	max-width: 100%;
+	height: auto;
+}
+
+@mixin flexbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+%flexbox {
+	@include flexbox;
+}
+
+//----------------------------------
+
+@mixin inline-flex {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+%inline-flex {
+	@include inline-flex;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Direction
+//
+// The 'flex-direction' property specifies how flex items are placed in
+// the flex container, by setting the direction of the flex container's
+// main axis. This determines the direction that flex items are laid out in.
+//
+// Values: row | row-reverse | column | column-reverse
+// Default: row
+//
+// http://w3.org/tr/css3-flexbox/#flex-direction-property
+
+@mixin flex-direction($value: row) {
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+	-webkit-flex-direction: $value;
+	-moz-flex-direction: $value;
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+}
+// Shorter version:
+@mixin flex-dir($args...) {
+	@include flex-direction($args...);
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Wrap
+//
+// The 'flex-wrap' property controls whether the flex container is single-line
+// or multi-line, and the direction of the cross-axis, which determines
+// the direction new lines are stacked in.
+//
+// Values: nowrap | wrap | wrap-reverse
+// Default: nowrap
+//
+// http://w3.org/tr/css3-flexbox/#flex-wrap-property
+
+@mixin flex-wrap($value: nowrap) {
+	// No Webkit Box fallback.
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else {
+		-ms-flex-wrap: $value;
+	}
+	flex-wrap: $value;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Flow (shorthand)
+//
+// The 'flex-flow' property is a shorthand for setting the 'flex-direction'
+// and 'flex-wrap' properties, which together define the flex container's
+// main and cross axes.
+//
+// Values: <flex-direction> | <flex-wrap>
+// Default: row nowrap
+//
+// http://w3.org/tr/css3-flexbox/#flex-flow-property
+
+@mixin flex-flow(
+	$values: (
+		row nowrap,
+	)
+) {
+	// No Webkit Box fallback.
+	-webkit-flex-flow: $values;
+	-moz-flex-flow: $values;
+	-ms-flex-flow: $values;
+	flex-flow: $values;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Order
+//
+// The 'order' property controls the order in which flex items appear within
+// their flex container, by assigning them to ordinal groups.
+//
+// Default: 0
+//
+// http://w3.org/tr/css3-flexbox/#order-property
+
+@mixin order($int: 0) {
+	-webkit-box-ordinal-group: $int + 1;
+	-webkit-order: $int;
+	-moz-order: $int;
+	-ms-flex-order: $int;
+	order: $int;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Grow
+//
+// The 'flex-grow' property sets the flex grow factor. Negative numbers
+// are invalid.
+//
+// Default: 0
+//
+// http://w3.org/tr/css3-flexbox/#flex-grow-property
+
+@mixin flex-grow($int: 0) {
+	-webkit-box-flex: $int;
+	-webkit-flex-grow: $int;
+	-moz-flex-grow: $int;
+	-ms-flex-positive: $int;
+	flex-grow: $int;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Shrink
+//
+// The 'flex-shrink' property sets the flex shrink factor. Negative numbers
+// are invalid.
+//
+// Default: 1
+//
+// http://w3.org/tr/css3-flexbox/#flex-shrink-property
+
+@mixin flex-shrink($int: 1) {
+	-webkit-flex-shrink: $int;
+	-moz-flex-shrink: $int;
+	-ms-flex-negative: $int;
+	flex-shrink: $int;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Basis
+//
+// The 'flex-basis' property sets the flex basis. Negative lengths are invalid.
+//
+// Values: Like "width"
+// Default: auto
+//
+// http://www.w3.org/TR/css3-flexbox/#flex-basis-property
+
+@mixin flex-basis($value: auto) {
+	-webkit-flex-basis: $value;
+	-moz-flex-basis: $value;
+	-ms-flex-preferred-size: $value;
+	flex-basis: $value;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox "Flex" (shorthand)
+//
+// The 'flex' property specifies the components of a flexible length: the
+// flex grow factor and flex shrink factor, and the flex basis. When an
+// element is a flex item, 'flex' is consulted instead of the main size
+// property to determine the main size of the element. If an element is
+// not a flex item, 'flex' has no effect.
+//
+// Values: none | <flex-grow> <flex-shrink> || <flex-basis>
+// Default: See individual properties (1 1 0).
+//
+// http://w3.org/tr/css3-flexbox/#flex-property
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+	// Set a variable to be used by box-flex properties
+	$fg-boxflex: $fg;
+
+	// Box-Flex only supports a flex-grow value so let's grab the
+	// first item in the list and just return that.
+	@if type-of($fg) == 'list' {
+		$fg-boxflex: nth($fg, 1);
+	}
+
+	-webkit-box-flex: $fg-boxflex;
+	-webkit-flex: $fg $fs $fb;
+	-moz-box-flex: $fg-boxflex;
+	-moz-flex: $fg $fs $fb;
+	-ms-flex: $fg $fs $fb;
+	flex: $fg $fs $fb;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Justify Content
+//
+// The 'justify-content' property aligns flex items along the main axis
+// of the current line of the flex container. This is done after any flexible
+// lengths and any auto margins have been resolved. Typically it helps distribute
+// extra free space leftover when either all the flex items on a line are
+// inflexible, or are flexible but have reached their maximum size. It also
+// exerts some control over the alignment of items when they overflow the line.
+//
+// Note: 'space-*' values not supported in older syntaxes.
+//
+// Values: flex-start | flex-end | center | space-between | space-around
+// Default: flex-start
+//
+// http://w3.org/tr/css3-flexbox/#justify-content-property
+
+@mixin justify-content($value: flex-start) {
+	@if $value == flex-start {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;
+	} @else {
+		-webkit-box-pack: $value;
+		-ms-flex-pack: $value;
+	}
+	-webkit-justify-content: $value;
+	-moz-justify-content: $value;
+	justify-content: $value;
+}
+// Shorter version:
+@mixin flex-just($args...) {
+	@include justify-content($args...);
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Align Items
+//
+// Flex items can be aligned in the cross axis of the current line of the
+// flex container, similar to 'justify-content' but in the perpendicular
+// direction. 'align-items' sets the default alignment for all of the flex
+// container's items, including anonymous flex items. 'align-self' allows
+// this default alignment to be overridden for individual flex items. (For
+// anonymous flex items, 'align-self' always matches the value of 'align-items'
+// on their associated flex container.)
+//
+// Values: flex-start | flex-end | center | baseline | stretch
+// Default: stretch
+//
+// http://w3.org/tr/css3-flexbox/#align-items-property
+
+@mixin align-items($value: stretch) {
+	@if $value == flex-start {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+	} @else if $value == flex-end {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+	} @else {
+		-webkit-box-align: $value;
+		-ms-flex-align: $value;
+	}
+	-webkit-align-items: $value;
+	-moz-align-items: $value;
+	align-items: $value;
+}
+
+//----------------------------------
+
+// Flexbox Align Self
+//
+// Values: auto | flex-start | flex-end | center | baseline | stretch
+// Default: auto
+
+@mixin align-self($value: auto) {
+	// No Webkit Box Fallback.
+	-webkit-align-self: $value;
+	-moz-align-self: $value;
+	@if $value == flex-start {
+		-ms-flex-item-align: start;
+	} @else if $value == flex-end {
+		-ms-flex-item-align: end;
+	} @else {
+		-ms-flex-item-align: $value;
+	}
+	align-self: $value;
+}
+
+//----------------------------------------------------------------------
+
+// Flexbox Align Content
+//
+// The 'align-content' property aligns a flex container's lines within the
+// flex container when there is extra space in the cross-axis, similar to
+// how 'justify-content' aligns individual items within the main-axis. Note,
+// this property has no effect when the flexbox has only a single line.
+//
+// Values: flex-start | flex-end | center | space-between | space-around | stretch
+// Default: stretch
+//
+// http://w3.org/tr/css3-flexbox/#align-content-property
+
+@mixin align-content($value: stretch) {
+	// No Webkit Box Fallback.
+	-webkit-align-content: $value;
+	-moz-align-content: $value;
+	@if $value == flex-start {
+		-ms-flex-line-pack: start;
+	} @else if $value == flex-end {
+		-ms-flex-line-pack: end;
+	} @else {
+		-ms-flex-line-pack: $value;
+	}
+	align-content: $value;
+}
+
+// 简化动画
+@mixin animation-s($name, $duration, $timing-function, $delay, $iteration-count: 1, $direction: normal, $play-state: running, $fill-mode: both) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-delay: $delay;
+	animation-iteration-count: $iteration-count;
+	animation-direction: $direction;
+	animation-play-state: $play-state;
+	animation-fill-mode: $fill-mode;
+}
+
+// 单独属性定义
+@mixin animation-delay($delay) {
+	animation-delay: $delay;
+}
+@mixin animation-duration($duration) {
+	animation-duration: $duration;
+}

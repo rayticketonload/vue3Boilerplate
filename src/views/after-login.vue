@@ -1,5 +1,5 @@
 <template>
-	<default-layout>
+	<!-- <default-layout>
 		<template slot="nav">
 			<role-nav></role-nav>
 		</template>
@@ -9,33 +9,35 @@
 		<template slot="router-view">
 			<router-view></router-view>
 		</template>
-	</default-layout>
+	</default-layout> -->
+	<div>after login</div>
+	<router-view></router-view>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import roleNav from '@LAYOUT/side-nav';
-import defaultLayout from '@LAYOUT/default-layout/index';
-import defaultHeader from '@LAYOUT/default-header/index';
+// import { mapState } from 'vuex';
+// import roleNav from '@LAYOUT/side-nav';
+// import defaultLayout from '@LAYOUT/default-layout/index';
+// import defaultHeader from '@LAYOUT/default-header/index';
 
 export default {
-	components: {
-		roleNav,
-		defaultLayout,
-		defaultHeader,
-	},
+	// components: {
+	// 	roleNav,
+	// 	defaultLayout,
+	// 	defaultHeader,
+	// },
 
-	data() {
-		return {
-			toDoQty: 0,
-		};
-	},
+	// data() {
+	// 	return {
+	// 		toDoQty: 0,
+	// 	};
+	// },
 
-	computed: {
-		...mapState({
-			email: state => state.profile.email,
-			breadcrumb: state => state.component.breadcrumb,
-		}),
-	},
+	// computed: {
+	// 	...mapState({
+	// 		email: state => state.profile.email,
+	// 		breadcrumb: state => state.component.breadcrumb,
+	// 	}),
+	// },
 };
 </script>

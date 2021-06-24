@@ -1,9 +1,12 @@
 <template>
-  <HelloWorld />
+  <!-- <HelloWorld /> -->
+	<transition name="el-fade-in">
+		<router-view :key="$route.fullpath"></router-view>
+	</transition>
 </template>
 
 <script setup>
-	import HelloWorld from '/@VIEWS/HelloWorld.vue'
+	// import HelloWorld from '/@VIEWS/HelloWorld.vue'
 </script>
 
 <style>

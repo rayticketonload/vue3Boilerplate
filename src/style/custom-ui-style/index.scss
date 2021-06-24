@@ -1,0 +1,40 @@
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+// 自定义表单提示
+.custom-tips-in-form {
+	margin-top: $gapSize-public * 2;
+	background-color: $background-color-secondary;
+	@include rounded($borderRadius-public);
+	padding: $gapSize-public $gapSize-public * 1.5;
+	color: $fontColor-secondary;
+	font-size: $fontSize-small;
+	line-height: $fontSize-small * 1.8;
+
+	.warning {
+		color: $statusColor-warning;
+	}
+}
+
+// 搜索区域按钮
+.custom-filter-btns-wrap {
+	text-align: right;
+}
+
+.custom-form-btns-wrap {
+	padding-top: $gapSize-public * 4;
+}
+
+// 用于 el-form-item 没 label 的时候，填充空白 // 适用于标准尺寸表单
+.if-el-form-item__label-none {
+	padding-top: 40px;
+}
