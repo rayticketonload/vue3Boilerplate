@@ -1,7 +1,7 @@
 // ******************
 // 样式名前序
 // ******************
-$class-name-pre-fixer: 'fresh';
+$class-name-pre-fixer: 'weychain';
 
 // ******************
 // theme color
@@ -10,14 +10,6 @@ $class-name-pre-fixer: 'fresh';
 $themeColor-primary: #36697f;
 $themeColor-secondary: #fab980;
 $themeColor-thirdly: #606266;
-
-// ******************
-// status color
-// ******************
-$statusColor-error: #f56c6c;
-$statusColor-success: #5cb87a;
-$statusColor-info: $themeColor-thirdly;
-$statusColor-warning: $themeColor-secondary;
 
 // ******************
 // border radius
@@ -62,30 +54,8 @@ $fontColor-link: $themeColor-primary;
 // border color
 // ******************
 $borderColor-primary: #ebebeb;
+
 // ******************
 // line height
 // ******************
 $lineHeight-default: 1.6;
-
-// ******************
-// z index
-// ******************
-$zIndex-nav: 1;
-$zIndex-view: 2;
-
-// ******************
-// default header
-// ******************
-$lineHeight-default_header: 34px;
-
-// ******************
-// default panel
-// ******************
-$tabBtnHeight-default_panel: 40px;
-
-// ******************
-// left side nav
-// ******************
-$width-side_nav: 240px;
-$height-logo_box-side_nav: 66px;
-$fontSize-primary-side_nav: $fontSize-default;

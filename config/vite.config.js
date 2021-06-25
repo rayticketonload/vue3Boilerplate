@@ -4,10 +4,8 @@ import chalk from 'chalk'
 import { resolve } from "path";
 import { ENV_DEV_FLAG } from '../src/helper/global'
 
-
-// alias
 function pathResolve(dir) {
-  return resolve(__dirname, ".", dir);
+  return resolve(__dirname, dir);
 }
 
 // 终端运行提示
@@ -44,6 +42,13 @@ const viteDefaultConfig = defineConfig(
 				'/@HELPER': resolve('src/helper'),
 				'/@COMPONENTS': resolve('src/components'),
 				'/@VIEWS': resolve('src/views'),
+			}
+		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@import "src/style/global_style.scss";`
+				}
 			}
 		},
 	}

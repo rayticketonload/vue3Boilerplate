@@ -10,7 +10,7 @@
 			<router-view></router-view>
 		</template>
 	</default-layout> -->
-	<div>after login</div>
+	<h1>after login</h1>
 	<router-view></router-view>
 </template>
 
@@ -41,3 +41,6 @@ export default {
 	// },
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

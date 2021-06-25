@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/style/theme/variable';
-@import '~@/style/mixins/mixins';
-
 .out-space-wrap {
 	position: fixed;
 	width: 100%;
