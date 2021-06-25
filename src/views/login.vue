@@ -1,5 +1,5 @@
 <template>
-	<div>login</div>
+	<div class="test">login</div>
 	<!-- <section id="login-page-wrap">
 		<div class="login-form-container">
 			<div class="sys-name">
@@ -132,190 +132,194 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/style/theme/variable.scss';
-@import '~@/style/mixins/mixins.scss';
-
-$fontSize-login_form: $fontSize-default * 1.2;
-$bgColor-login_form: $themeColor-primary;
-
-#login-page-wrap {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	background-image: url('~@/assets/login_bg.png');
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	background-color: $bgColor-login_form;
+.test {
+	background-color: $themeColor-primary;
 }
 
-.sys-name {
-	padding-bottom: $gapSize-public * 8;
+// @import '~@/style/theme/variable.scss';
+// @import '~@/style/mixins/mixins.scss';
 
-	.name {
-		color: $themeColor-primary;
-		font-size: $fontSize-larger;
-		padding-top: $gapSize-public * 4;
-		text-align: center;
-	}
+// $fontSize-login_form: $fontSize-default * 1.2;
+// $bgColor-login_form: $themeColor-primary;
 
-	.login-solgan {
-		font-size: 52px;
-		line-height: 1;
-		color: $themeColor-primary;
-		text-align: center;
-		position: relative;
-		padding-bottom: $gapSize-public * 4;
-		font-weight: 200;
+// #login-page-wrap {
+// 	position: relative;
+// 	width: 100%;
+// 	height: 100%;
+// 	background-image: url('~@/assets/login_bg.png');
+// 	background-repeat: no-repeat;
+// 	background-position: center center;
+// 	background-size: cover;
+// 	background-color: $bgColor-login_form;
+// }
 
-		&:after {
-			content: '';
-			position: absolute;
-			height: 5px;
-			width: 36px;
-			background-color: $themeColor-primary;
-			bottom: 0;
-			left: 50%;
-			margin-left: -18px;
-		}
-	}
-}
+// .sys-name {
+// 	padding-bottom: $gapSize-public * 8;
 
-.error {
-	padding-top: $gapSize-public * 4;
-	color: rgb(247, 181, 162);
+// 	.name {
+// 		color: $themeColor-primary;
+// 		font-size: $fontSize-larger;
+// 		padding-top: $gapSize-public * 4;
+// 		text-align: center;
+// 	}
 
-	.error-icon {
-		font-size: $fontSize-large;
-		vertical-align: top;
-	}
-}
+// 	.login-solgan {
+// 		font-size: 52px;
+// 		line-height: 1;
+// 		color: $themeColor-primary;
+// 		text-align: center;
+// 		position: relative;
+// 		padding-bottom: $gapSize-public * 4;
+// 		font-weight: 200;
 
-.login-form-container {
-	box-sizing: border-box;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 410px;
-	padding: $gapSize-public * 6;
-	background-color: #fff;
-	@include rounded($borderRadius-public);
-	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-}
+// 		&:after {
+// 			content: '';
+// 			position: absolute;
+// 			height: 5px;
+// 			width: 36px;
+// 			background-color: $themeColor-primary;
+// 			bottom: 0;
+// 			left: 50%;
+// 			margin-left: -18px;
+// 		}
+// 	}
+// }
 
-.login-form {
-	&-btn-box,
-	&-control-box {
-		position: relative;
-	}
+// .error {
+// 	padding-top: $gapSize-public * 4;
+// 	color: rgb(247, 181, 162);
 
-	&-control-icon {
-		position: absolute;
-		top: 50%;
-		// left: $gapSize-public * 4;
-		left: 0;
-		transform: translate(0, -50%);
-		font-size: $fontSize-larger;
-		// color: lighten($bgColor-login_form, 30);
-		color: #ccc;
-		@include transition(all, 0.3s, ease, 0);
+// 	.error-icon {
+// 		font-size: $fontSize-large;
+// 		vertical-align: top;
+// 	}
+// }
 
-		&.focus {
-			// color: lighten($bgColor-login_form, 55);
-			color: lighten($bgColor-login_form, 38);
-		}
-	}
+// .login-form-container {
+// 	box-sizing: border-box;
+// 	position: absolute;
+// 	left: 50%;
+// 	top: 50%;
+// 	transform: translate(-50%, -50%);
+// 	width: 410px;
+// 	padding: $gapSize-public * 6;
+// 	background-color: #fff;
+// 	@include rounded($borderRadius-public);
+// 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+// }
 
-	&-control-clear {
-		cursor: pointer;
-		position: absolute;
-		top: 50%;
-		// right: $gapSize-public * 4;
-		right: 0;
-		transform: translate(0, -50%);
-		font-size: $fontSize-larger;
-		color: lighten($bgColor-login_form, 10);
-		@include transition(all, 0.3s, ease, 0);
+// .login-form {
+// 	&-btn-box,
+// 	&-control-box {
+// 		position: relative;
+// 	}
 
-		&:hover {
-			color: lighten($bgColor-login_form, 38);
-		}
-	}
+// 	&-control-icon {
+// 		position: absolute;
+// 		top: 50%;
+// 		// left: $gapSize-public * 4;
+// 		left: 0;
+// 		transform: translate(0, -50%);
+// 		font-size: $fontSize-larger;
+// 		// color: lighten($bgColor-login_form, 30);
+// 		color: #ccc;
+// 		@include transition(all, 0.3s, ease, 0);
 
-	&-control-box {
-		@include input-placeholder(#ccc);
+// 		&.focus {
+// 			// color: lighten($bgColor-login_form, 55);
+// 			color: lighten($bgColor-login_form, 38);
+// 		}
+// 	}
 
-		input[type='text'],
-		input[type='password'] {
-			display: block;
-			width: 100%;
-			box-sizing: border-box;
-			border: none;
-			outline: none;
-			// @include rounded($borderRadius-public);
-			-webkit-input-placeholder: red;
-			height: $fontSize-login_form + $gapSize-public * 8;
-			// padding: 0 $gapSize-public * 12;
-			padding: 0 $gapSize-public * 8;
-			font-size: $fontSize-login_form;
-			line-height: $fontSize-login_form;
-			// background-color: darken($bgColor-login_form, 10);
-			// color: lighten($bgColor-login_form, 38);
-			color: $bgColor-login_form;
-			@include transition(all, 0.3s, ease, 0);
-			// box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.075);
-			border-bottom: 1px solid #dfdfdf;
+// 	&-control-clear {
+// 		cursor: pointer;
+// 		position: absolute;
+// 		top: 50%;
+// 		// right: $gapSize-public * 4;
+// 		right: 0;
+// 		transform: translate(0, -50%);
+// 		font-size: $fontSize-larger;
+// 		color: lighten($bgColor-login_form, 10);
+// 		@include transition(all, 0.3s, ease, 0);
 
-			&:focus {
-				// background-color: darken($bgColor-login_form, 15);
-			}
-		}
+// 		&:hover {
+// 			color: lighten($bgColor-login_form, 38);
+// 		}
+// 	}
 
-		// input[type='text'].user-name {
-		// }
+// 	&-control-box {
+// 		@include input-placeholder(#ccc);
 
-		// input[type='password'].password {
-		// }
-	}
+// 		input[type='text'],
+// 		input[type='password'] {
+// 			display: block;
+// 			width: 100%;
+// 			box-sizing: border-box;
+// 			border: none;
+// 			outline: none;
+// 			// @include rounded($borderRadius-public);
+// 			-webkit-input-placeholder: red;
+// 			height: $fontSize-login_form + $gapSize-public * 8;
+// 			// padding: 0 $gapSize-public * 12;
+// 			padding: 0 $gapSize-public * 8;
+// 			font-size: $fontSize-login_form;
+// 			line-height: $fontSize-login_form;
+// 			// background-color: darken($bgColor-login_form, 10);
+// 			// color: lighten($bgColor-login_form, 38);
+// 			color: $bgColor-login_form;
+// 			@include transition(all, 0.3s, ease, 0);
+// 			// box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.075);
+// 			border-bottom: 1px solid #dfdfdf;
 
-	&-control-box + &-control-box {
-		margin-top: $gapSize-public * 2;
-	}
+// 			&:focus {
+// 				// background-color: darken($bgColor-login_form, 15);
+// 			}
+// 		}
 
-	&-btn-box {
-		margin-top: $gapSize-public * 8;
+// 		// input[type='text'].user-name {
+// 		// }
 
-		.login-btn {
-			width: 100%;
-			display: block;
-			height: $fontSize-login_form + $gapSize-public * 8;
-			font-size: $fontSize-large;
-			background-color: $themeColor-primary;
-		}
-	}
+// 		// input[type='password'].password {
+// 		// }
+// 	}
 
-	&-link {
-		color: lighten($bgColor-login_form, 38);
-		@include transition(all, 0.3s, ease, 0);
-		text-decoration: none;
+// 	&-control-box + &-control-box {
+// 		margin-top: $gapSize-public * 2;
+// 	}
 
-		&:hover {
-			color: lighten($bgColor-login_form, 50);
-		}
+// 	&-btn-box {
+// 		margin-top: $gapSize-public * 8;
 
-		&.left {
-			float: left;
-		}
+// 		.login-btn {
+// 			width: 100%;
+// 			display: block;
+// 			height: $fontSize-login_form + $gapSize-public * 8;
+// 			font-size: $fontSize-large;
+// 			background-color: $themeColor-primary;
+// 		}
+// 	}
 
-		&.right {
-			float: right;
-		}
-	}
-}
+// 	&-link {
+// 		color: lighten($bgColor-login_form, 38);
+// 		@include transition(all, 0.3s, ease, 0);
+// 		text-decoration: none;
 
-.signup-or-change-password {
-	margin-top: $gapSize-public * 2;
-	@include clearfix();
-}
+// 		&:hover {
+// 			color: lighten($bgColor-login_form, 50);
+// 		}
+
+// 		&.left {
+// 			float: left;
+// 		}
+
+// 		&.right {
+// 			float: right;
+// 		}
+// 	}
+// }
+
+// .signup-or-change-password {
+// 	margin-top: $gapSize-public * 2;
+// 	@include clearfix();
+// }
 </style>

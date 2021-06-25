@@ -4,7 +4,7 @@ const { RN_LOGIN, RN_NOT_FOUND } = ROUTE_NAME;
 // const routeComLogin = r => require.ensure([], () => r(require('/@VIEWS/login')), 'routeComLogin');
 // const routeComNotFound = r => require.ensure([], () => r(require('/@VIEWS/not-found')), 'routeComNotFound');
 
-import routeComLogin from '/@VIEWS/after-login';
+import routeComLogin from '/@VIEWS/login';
 import routeComNotFound from '/@VIEWS/not-found';
 
 
