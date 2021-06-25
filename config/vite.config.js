@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { ENV_DEV_FLAG } from '../src/helper/global'
 
 function pathResolve(dir) {
-  return resolve(__dirname, dir);
+  return resolve(__dirname, '..', dir);
 }
 
 // 终端运行提示
