@@ -1,12 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import chalk from 'chalk'
-import { resolve } from "path";
+import { resolve, join } from "path";
 import { ENV_DEV_FLAG } from '../src/helper/global'
-
-function pathResolve(dir) {
-  return resolve(__dirname, '..', dir);
-}
 
 // 终端运行提示
 function noteProcess(command, mode, modeAfter) {
@@ -23,6 +19,17 @@ function noteProcess(command, mode, modeAfter) {
 	console.log(chalk.blueBright.italic(`  ${warning(`开发模式标签`)} ${mode} ${warning(`置换为`)} ${modeAfterResult}${loading}  ` + '\n'));
 }
 
+function pathResolve(dir) {
+  return join(__dirname, '..', dir);
+}
+
+function pathJoin(dir) {
+	console.log(join(__dirname, '..', dir));
+	// 因为 vite.config 文件在 config 文件夹里面，需要去外一层找 src 资源，所以要 '..' 跳出去
+  return join(__dirname, '..', dir);
+
+}
+
 const viteDefaultConfig = defineConfig(
 	{
 		plugins: [
@@ -34,7 +41,7 @@ const viteDefaultConfig = defineConfig(
 		resolve: {
 			extensions: ['.js', '.vue', '.json'],
 			alias: {
-				'/@': pathResolve('src'),
+				'@': pathJoin('src'),
 				'/@API': resolve('src/api'),
 				'/@ROUTER': resolve('src/router'),
 				'/@STORE': resolve('src/store'),

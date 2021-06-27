@@ -11,7 +11,6 @@ export default [
 	...publicPermissionsRequired,
 	{
 		path: '/afterlogin',
-		// component: r => require.ensure([], () => r(require('/@VIEWS/after-login')), 'afterlogin'),
 		component: () => import('/@VIEWS/after-login'),
 		redirect: RN_NOT_FOUND,
 		children: [
