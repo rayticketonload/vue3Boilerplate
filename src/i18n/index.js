@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n'
-import { LANG_CN_FLAG, LANG_EN_FLAG } from '/@HELPER/global'
+import { LANG_CN_FLAG, LANG_EN_FLAG } from '@HELPER/global'
 import customZhCn from './langs/zh-CN.json';
 import customEnUs from './langs/en-US.json';
 // import zhLocale from 'element-ui/lib/locale/lang/zh-CN';

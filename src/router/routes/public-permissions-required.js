@@ -1,5 +1,5 @@
 // 需要权限的公共页面
-import { ROUTE_NAME } from '/@HELPER/global';
+import { ROUTE_NAME } from '@HELPER/global';
 
 const { RN_HOME } = ROUTE_NAME;
 

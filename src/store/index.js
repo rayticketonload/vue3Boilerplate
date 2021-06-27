@@ -1,5 +1,5 @@
 import { createStore, createLogger } from 'vuex'
-import { ENV_PROD_FLAG } from '/@HELPER/global';
+import { ENV_PROD_FLAG } from '@HELPER/global';
 import profile from './modules/profile';
 import component from './modules/component';
 

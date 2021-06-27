@@ -42,7 +42,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { STORE_TYPE, VERSION, ROUTE_NAME } from '/@HELPER/global';
+import { STORE_TYPE, VERSION, ROUTE_NAME } from '@HELPER/global';
 
 const { LOGIN, GET_PERMISSIONS } = STORE_TYPE;
 
@@ -132,6 +132,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .test {
 	background-color: $themeColor-primary;
 }

@@ -9,9 +9,9 @@
 
 <script>
 import { reactive } from 'vue'
-import api from '/@API';
-import store from '/@STORE';
-import { STORE_TYPE } from '/@HELPER/global';
+import api from '@API';
+import store from '@STORE';
+import { STORE_TYPE } from '@HELPER/global';
 
 export default {
 	props: {

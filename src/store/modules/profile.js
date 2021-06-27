@@ -1,7 +1,7 @@
-import api from '/@API';
+import api from '@API';
 import cookie from 'js-cookie';
 import nested from './nested'
-import { STORE_TYPE, STORAGE_CURRENT_USER_INFO, LOGIN_COOKIE_KEY, ROUTE_NAME } from '/@HELPER/global';
+import { STORE_TYPE, STORAGE_CURRENT_USER_INFO, LOGIN_COOKIE_KEY, ROUTE_NAME } from '@HELPER/global';
 const storage = localStorage;
 const { RN_HOME } = ROUTE_NAME;
 const {

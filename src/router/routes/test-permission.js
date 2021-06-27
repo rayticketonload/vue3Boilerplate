@@ -1,8 +1,8 @@
-import { ROLE_0, ROLE_1, ROUTE_NAME } from '/@HELPER/global';
+import { ROLE_0, ROLE_1, ROUTE_NAME } from '@HELPER/global';
 
 const { RN_TEST } = ROUTE_NAME;
 
-const test = r => require.ensure([], () => r(require('/@VIEWS/test/test')), 'test');
+const test = r => require.ensure([], () => r(require('@VIEWS/test/test.vue')), 'test');
 
 export default [
 	{

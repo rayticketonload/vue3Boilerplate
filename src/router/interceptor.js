@@ -1,9 +1,9 @@
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import i18n from '/@I18N';
-import store from '/@STORE';
+import i18n from '@I18N';
+import store from '@STORE';
 import cookie from 'js-cookie';
-import { STORE_TYPE, ROUTE_NAME, NO_PERMISSIONS_REQUIRED_ROUTES_MAP, LOGIN_COOKIE_KEY, ROLE_0, ROLE_1 } from '/@HELPER/global';
+import { STORE_TYPE, ROUTE_NAME, NO_PERMISSIONS_REQUIRED_ROUTES_MAP, LOGIN_COOKIE_KEY, ROLE_0, ROLE_1 } from '@HELPER/global';
 
 const { GET_PERMISSIONS, SET_CURRENT_NAV } = STORE_TYPE;
 const { RN_LOGIN, RN_NOT_FOUND, RN_HOME, RN_TEST } = ROUTE_NAME;

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import store from '/@STORE';
-// import i18n from '/@I18N';
+import store from '@STORE';
+// import i18n from '@I18N';
 import cookie from 'js-cookie';
 // import router from '../router';
 import whitelist from './white-list';
-import { STORAGE_CURRENT_USER_INFO, STORE_TYPE, ROUTE_NAME, LOGIN_COOKIE_KEY } from '/@HELPER/global';
+import { STORAGE_CURRENT_USER_INFO, STORE_TYPE, ROUTE_NAME, LOGIN_COOKIE_KEY } from '@HELPER/global';
 // import { Message } from 'element-ui';
 
 const storage = localStorage;

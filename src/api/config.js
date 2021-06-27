@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { LANG_CN_FLAG } from '/@HELPER/global';
+// import { LANG_CN_FLAG } from '@HELPER/global';
 
 export default {
 	use() {

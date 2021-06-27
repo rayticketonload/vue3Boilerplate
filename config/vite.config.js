@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import chalk from 'chalk'
-import { resolve, join } from "path";
 import { ENV_DEV_FLAG } from '../src/helper/global'
 
 // 终端运行提示
@@ -19,17 +18,6 @@ function noteProcess(command, mode, modeAfter) {
 	console.log(chalk.blueBright.italic(`  ${warning(`开发模式标签`)} ${mode} ${warning(`置换为`)} ${modeAfterResult}${loading}  ` + '\n'));
 }
 
-function pathResolve(dir) {
-  return join(__dirname, '..', dir);
-}
-
-function pathJoin(dir) {
-	console.log(join(__dirname, '..', dir));
-	// 因为 vite.config 文件在 config 文件夹里面，需要去外一层找 src 资源，所以要 '..' 跳出去
-  return join(__dirname, '..', dir);
-
-}
-
 const viteDefaultConfig = defineConfig(
 	{
 		plugins: [
@@ -39,22 +27,23 @@ const viteDefaultConfig = defineConfig(
 			include: ["axios"]
 		},
 		resolve: {
-			extensions: ['.js', '.vue', '.json'],
-			alias: {
-				'@': pathJoin('src'),
-				'/@API': resolve('src/api'),
-				'/@ROUTER': resolve('src/router'),
-				'/@STORE': resolve('src/store'),
-				'/@I18N': resolve('src/i18n'),
-				'/@HELPER': resolve('src/helper'),
-				'/@COMPONENTS': resolve('src/components'),
-				'/@VIEWS': resolve('src/views'),
-			}
+			// extensions 选项已经有必须的文件类型参数，导入时想要省略的扩展名列表。注意，vite 不建议忽略自定义导入类型的扩展名（例如：.vue），因为它会干扰 IDE 和类型支持。
+			// 事实上，就算加了 .vue 也不起作用，除非别名的开头用 '/'，例如 '/@VIEWS'，但这样的开头在 style 类型的解释中又不支持
+			alias: [
+				{ find: '@', replacement: '/src' },
+				{ find: '@API', replacement: '/src/api' },
+				{ find: '@ROUTER', replacement: '/src/router' },
+				{ find: '@STORE', replacement: '/src/store' },
+				{ find: '@I18N', replacement: '/src/i18n' },
+				{ find: '@HELPER', replacement: '/src/helper' },
+      	{ find: '@VIEWS', replacement: '/src/views' },
+				{ find: '@STYLE', replacement: '/src/style' },
+			]
 		},
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: `@import "src/style/global_style.scss";`
+					additionalData: `@import "@STYLE/global_style";`
 				}
 			}
 		},

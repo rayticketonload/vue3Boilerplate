@@ -1,9 +1,9 @@
-import { ROUTE_NAME } from '/@HELPER/global';
+import { ROUTE_NAME } from '@HELPER/global';
 
 const { RN_LOGIN, RN_NOT_FOUND } = ROUTE_NAME;
 
-import routeComLogin from '/@VIEWS/login';
-import routeComNotFound from '/@VIEWS/not-found';
+import routeComLogin from '@VIEWS/login.vue';
+import routeComNotFound from '@VIEWS/not-found.vue';
 
 
 export default [

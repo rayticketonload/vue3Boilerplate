@@ -1,4 +1,4 @@
-import { STORE_TYPE } from '/@HELPER/global';
+import { STORE_TYPE } from '@HELPER/global';
 import nested from './nested'
 
 const { SET_BREADCRUMB, SET_DEFAULT_PANEL_TAB_NEED_OR_NOT, SET_DEFAULT_PANEL_TAB, SET_CURRENT_NAV, SET_GLOBAL_LOADING, SET_MODAL_FILTER } = STORE_TYPE;
