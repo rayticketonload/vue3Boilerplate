@@ -44,7 +44,7 @@ export default {
 			NProgress.start();
 
 			if (cookie.get(LOGIN_COOKIE_KEY) && !store.state.profile.isLogin) {
-				await store.dispatch(GET_PERMISSIONS);
+				await store.dispatch(`profile/${GET_PERMISSIONS}`);
 			}
 
 			if (to.matched.some(r => r.meta.requireAuth)) {
@@ -86,7 +86,7 @@ export default {
 					}
 
 					if (to.matched[1].path) {
-						await store.commit(SET_CURRENT_NAV, to.matched[1].path);
+						await store.commit(`component/${SET_CURRENT_NAV}`, to.matched[1].path);
 					}
 
 					next();

@@ -171,6 +171,10 @@ const actions = {
 				resKey: 'data_management',
 				childs: ['data_management', 'data_list'],
 			},
+			{
+				resKey: 'test',
+				childs: ['test'],
+			},
 		];
 
 		// 接口返回权限表
