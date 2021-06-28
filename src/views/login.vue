@@ -1,5 +1,10 @@
 <template>
 	<div class="test">login</div>
+	<input type="text" v-model.trim="username" id="username" :placeholder="$t('yong-hu-ming')" />
+	<input type="password" v-model.trim="password" id="password" :placeholder="$t('mi-ma')" />
+	<button @click="login()">
+		{{ $t('deng-lu') }}
+	</button>
 	<!-- <section id="login-page-wrap">
 		<div class="login-form-container">
 			<div class="sys-name">
@@ -59,16 +64,16 @@ export default {
 
 	methods: {
 		...mapActions({
-			LOGIN,
-			GET_PERMISSIONS,
+			[LOGIN]: `profile/${LOGIN}`,
+			[GET_PERMISSIONS]: `profile/${GET_PERMISSIONS}`,
 		}),
 
 		async login() {
-			if (!this.check()) {
-				return;
-			}
+			// if (!this.check()) {
+			// 	return;
+			// }
 
-			this.isDisabled = true;
+			// this.isDisabled = true;
 
 			const params = {
 				username: this.username,

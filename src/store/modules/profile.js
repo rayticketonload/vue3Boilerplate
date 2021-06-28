@@ -68,7 +68,7 @@ const mutations = {
 const actions = {
 
 	[LOGIN]: async ({ commit }, params) => {
-		const res = await api.login(params);
+		const res = await api.user.login(params);
 		if (res.code === 200 && res.message === 'success') {
 			const { user, token } = res.data;
 			const userInfo = JSON.stringify({

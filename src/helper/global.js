@@ -1,4 +1,12 @@
-import packageConfig from '../../package.json';
+// ***
+// 项目名称
+// ***
+export const PROJECT_NAME = 'Project Evo';
+
+// ***
+// 版本号
+// ***
+export const VERSION = '1.0.0';
 
 // env mode flag name
 export const ENV_DEV_FLAG = `DEV`; // 开发模式
@@ -8,11 +16,6 @@ export const ENV_PROD_FLAG = `PROD`; // 生产模式
 // Language flag name
 export const LANG_CN_FLAG = `zh_CN`; // 简体中文
 export const LANG_EN_FLAG = `en_US`; // 美式英语
-
-// ***
-// 版本号
-// ***
-export const VERSION = packageConfig.version;
 
 // ***
 // 登录 cookie key name

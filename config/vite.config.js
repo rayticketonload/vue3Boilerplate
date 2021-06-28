@@ -30,6 +30,7 @@ const viteDefaultConfig = defineConfig(
 			// extensions 选项已经有必须的文件类型参数，导入时想要省略的扩展名列表。注意，vite 不建议忽略自定义导入类型的扩展名（例如：.vue），因为它会干扰 IDE 和类型支持。
 			// 事实上，就算加了 .vue 也不起作用，除非别名的开头用 '/'，例如 '/@VIEWS'，但这样的开头在 style 类型的解释中又不支持
 			alias: [
+				{ find: '@PACKAGE', replacement: '/package.json' },
 				{ find: '@', replacement: '/src' },
 				{ find: '@API', replacement: '/src/api' },
 				{ find: '@ROUTER', replacement: '/src/router' },
@@ -38,6 +39,7 @@ const viteDefaultConfig = defineConfig(
 				{ find: '@HELPER', replacement: '/src/helper' },
       	{ find: '@VIEWS', replacement: '/src/views' },
 				{ find: '@STYLE', replacement: '/src/style' },
+				{ find: '@ASSETS', replacement: '/src/assets' },
 			]
 		},
 		css: {

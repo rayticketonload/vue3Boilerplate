@@ -3,7 +3,7 @@ import 'nprogress/nprogress.css';
 import i18n from '@I18N';
 import store from '@STORE';
 import cookie from 'js-cookie';
-import { STORE_TYPE, ROUTE_NAME, NO_PERMISSIONS_REQUIRED_ROUTES_MAP, LOGIN_COOKIE_KEY, ROLE_0, ROLE_1 } from '@HELPER/global';
+import { STORE_TYPE, ROUTE_NAME, NO_PERMISSIONS_REQUIRED_ROUTES_MAP, LOGIN_COOKIE_KEY, ROLE_0, ROLE_1, PROJECT_NAME } from '@HELPER/global';
 
 const { GET_PERMISSIONS, SET_CURRENT_NAV } = STORE_TYPE;
 const { RN_LOGIN, RN_NOT_FOUND, RN_HOME, RN_TEST } = ROUTE_NAME;
@@ -40,7 +40,7 @@ const canVisit = routeName => {
 export default {
 	use(router) {
 		router.beforeEach(async (to, from, next) => {
-			// document.title = i18n.t('sys-name');
+			document.title = PROJECT_NAME;
 			NProgress.start();
 
 			if (cookie.get(LOGIN_COOKIE_KEY) && !store.state.profile.isLogin) {

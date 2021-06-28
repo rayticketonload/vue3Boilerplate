@@ -1,3 +1,8 @@
 {
-  "defaultKey": "defaultKey"
+  "defaultKey": "defaultKey",
+  "zhan-wei-fu-ce-shi": "占位符测试",
+  "yong-hu-ming": "用户名",
+  "mi-ma": "密码",
+  "deng-lu": "登录",
+	"hui-shou-ye": "回首页"
 }

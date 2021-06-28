@@ -58,7 +58,7 @@ export default {
 		@include square(300px);
 		display: inline-block;
 		vertical-align: middle;
-		background-image: url('~@/assets/404.png');
+		background-image: url('@ASSETS/404.png');
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
