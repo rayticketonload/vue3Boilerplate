@@ -2,7 +2,7 @@ import api from '@API';
 import cookie from 'js-cookie';
 import nested from './nested'
 import { STORE_TYPE, STORAGE_CURRENT_USER_INFO, LOGIN_COOKIE_KEY, ROUTE_NAME } from '@HELPER/global';
-const storage = localStorage;
+
 const { RN_HOME } = ROUTE_NAME;
 const {
 	LOGIN,
@@ -76,8 +76,8 @@ const actions = {
 				userName: user.userName,
 				email: user.email,
 			});
-			storage.removeItem(STORAGE_CURRENT_USER_INFO);
-			storage.setItem(STORAGE_CURRENT_USER_INFO, userInfo);
+			localStorage.removeItem(STORAGE_CURRENT_USER_INFO);
+			localStorage.setItem(STORAGE_CURRENT_USER_INFO, userInfo);
 			cookie.set(LOGIN_COOKIE_KEY, token);
 			commit(LOGIN);
 			return res;
@@ -91,7 +91,7 @@ const actions = {
 		if (res.code === 200 && res.message === 'success') {
 			commit(LOGOUT);
 			cookie.remove(LOGIN_COOKIE_KEY);
-			storage.removeItem(STORAGE_CURRENT_USER_INFO);
+			localStorage.removeItem(STORAGE_CURRENT_USER_INFO);
 			return res;
 		} else {
 			return res;
@@ -187,8 +187,8 @@ const actions = {
 
 		commit(SET_ROLE_TYPE, 0); // 由于后端没做角色系统，暂时默认全部角色是 role 0
 
-		if (storage.getItem(STORAGE_CURRENT_USER_INFO)) {
-			const userInfo = JSON.parse(storage.getItem(STORAGE_CURRENT_USER_INFO));
+		if (localStorage.getItem(STORAGE_CURRENT_USER_INFO)) {
+			const userInfo = JSON.parse(localStorage.getItem(STORAGE_CURRENT_USER_INFO));
 			commit(SET_EMAIL, userInfo.email);
 			commit(SET_USERNAME, userInfo.userName);
 			commit(SET_USERID, userInfo.userId);

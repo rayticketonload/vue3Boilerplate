@@ -6,6 +6,7 @@
 		<el-button @click="login()" type="primary">
 			{{ $t('deng-lu') }}
 		</el-button>
+		<el-calendar v-model="value" />
 		<!-- <section id="login-page-wrap">
 			<div class="login-form-container">
 				<div class="sys-name">
@@ -61,6 +62,7 @@ export default {
 			password: '',
 			errorMsg: null,
 			isDisabled: false,
+			value: new Date(),
 		};
 	},
 

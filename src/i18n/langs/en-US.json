@@ -1,3 +1,9 @@
 {
-	"defaultKey": "defaultKey"
+  "defaultKey": "defaultKey",
+  "zhan-wei-fu-ce-shi": "placeholder test",
+  "yong-hu-ming": "username",
+  "mi-ma": "password",
+  "deng-lu": "login",
+	"hui-shou-ye": "back to home"
 }
+

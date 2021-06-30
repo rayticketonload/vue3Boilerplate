@@ -9,7 +9,12 @@ import '@STYLE/style-reset/element-plus-ui-reset.scss';
 
 const app = createApp(App);
 
-app.use(ElementPlus);
+app.use(
+	ElementPlus,
+	{
+  	i18n: i18n.global.t,
+	}
+);
 app.use(router);
 app.use(store);
 app.use(i18n);
