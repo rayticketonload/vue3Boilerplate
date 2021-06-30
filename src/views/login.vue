@@ -2,9 +2,9 @@
 	<div class="test">login</div>
 	<input type="text" v-model.trim="username" id="username" :placeholder="$t('yong-hu-ming')" />
 	<input type="password" v-model.trim="password" id="password" :placeholder="$t('mi-ma')" />
-	<button @click="login()">
+	<el-button @click="login()" type="primary">
 		{{ $t('deng-lu') }}
-	</button>
+	</el-button>
 	<!-- <section id="login-page-wrap">
 		<div class="login-form-container">
 			<div class="sys-name">
@@ -140,6 +140,7 @@ export default {
 
 .test {
 	background-color: $themeColor-primary;
+	padding: 50;
 }
 
 // @import '~@/style/theme/variable.scss';

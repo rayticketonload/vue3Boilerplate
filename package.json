@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "element-plus": "^1.0.2-beta.53",
     "js-cookie": "^2.2.1",
     "nprogress": "^0.2.0",
     "vue": "^3.0.5",

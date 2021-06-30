@@ -1,4 +1,6 @@
-@charset "UTF-8";
-@import './theme/variable.scss';
-@import './mixins/mixins.scss';
-@import './browser-style-reset/normalize.scss';
+@import '@STYLE/theme/variable.scss';
+@import '@STYLE/mixins/mixins.scss';
+// 未找到解决 ele ui scss 编译 css 性能的性能问题，ele 的样式文件暂从 main 中引入，将问题影响范围限制在 ele ui 的编译内
+// 连带样式重置的覆盖顺序原因，normalize 的引入也将一同迁移到 main，架构不完美了
+// @import '@STYLE/style-reset/normalize.scss';
+// @import '@STYLE/style-reset/element-plus-ui-reset.scss';
