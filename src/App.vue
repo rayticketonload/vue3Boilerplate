@@ -1,8 +1,13 @@
 <template>
   <!-- <HelloWorld /> -->
-	<transition name="el-fade-in">
+	<!-- <transition name="el-fade-in">
 		<router-view :key="$route.fullpath"></router-view>
-	</transition>
+	</transition> -->
+	<router-view v-slot="{ Component }">
+		<transition name="fade" mode="out-in" appear>
+			<component :is="Component"></component>
+		</transition>
+	</router-view>
 </template>
 
 <script setup>
