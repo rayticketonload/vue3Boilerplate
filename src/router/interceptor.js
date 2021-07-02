@@ -1,6 +1,5 @@
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import i18n from '@I18N';
 import store from '@STORE';
 import cookie from 'js-cookie';
 import { STORE_TYPE, ROUTE_NAME, NO_PERMISSIONS_REQUIRED_ROUTES_MAP, LOGIN_COOKIE_KEY, ROLE_0, ROLE_1, PROJECT_NAME } from '@HELPER/global';

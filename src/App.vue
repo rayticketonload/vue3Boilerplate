@@ -1,5 +1,5 @@
 <template>
-  <!-- <HelloWorld /> -->
+	<langSelect />
 	<router-view v-slot="{ Component }">
 		<transition name="fade" mode="out-in" appear>
 			<component :is="Component"></component>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-	// import HelloWorld from '@VIEWS/HelloWorld.vue'
+	import langSelect from '@COMPONENTS/langSelect/index.vue'
 </script>
 
 <style lang="scss">

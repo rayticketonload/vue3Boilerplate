@@ -4,5 +4,9 @@
   "yong-hu-ming": "用户名",
   "mi-ma": "密码",
   "deng-lu": "登录",
-	"hui-shou-ye": "回首页"
+  "hui-shou-ye": "回首页",
+  "jian-ti-zhong-wen": "简体中文",
+  "deng-lu-ye-mian": "登录页面",
+  "qing-qiu-lan-jie-qi": "请求拦截器",
+  "ce-shi-quan-ju-chang-liang": "测试全局常量"
 }

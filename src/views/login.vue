@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div class="test">login</div>
+		<div class="test">{{ $t('deng-lu-ye-mian') }}</div>
 		<input type="text" v-model.trim="username" id="username" :placeholder="$t('yong-hu-ming')" />
 		<input type="password" v-model.trim="password" id="password" :placeholder="$t('mi-ma')" />
 		<el-button @click="login()" type="primary">

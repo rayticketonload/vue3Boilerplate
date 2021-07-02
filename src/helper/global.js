@@ -1,21 +1,20 @@
+import { i18n } from '@I18N';
+import PACKAGE from '@PACKAGE';
+
 // ***
 // 项目名称
 // ***
-export const PROJECT_NAME = 'Project Evo';
+export const PROJECT_NAME = PACKAGE.name;
 
 // ***
 // 版本号
 // ***
-export const VERSION = '1.0.0';
+export const VERSION = PACKAGE.version;
 
 // env mode flag name
 export const ENV_DEV_FLAG = `DEV`; // 开发模式
 export const ENV_STAGE_FLAG = `STAGE`; // 测试模式
 export const ENV_PROD_FLAG = `PROD`; // 生产模式
-
-// Language flag name
-export const LANG_CN_FLAG = `zh_CN`; // 简体中文
-export const LANG_EN_FLAG = `en_US`; // 美式英语
 
 // ***
 // 登录 cookie key name
@@ -26,11 +25,6 @@ export const LOGIN_COOKIE_KEY = `${PROJECT_NAME}_${process.env.NODE_ENV}_TOKEN`;
 // local storage 里面的当前用户信息的 key name
 // ***
 export const STORAGE_CURRENT_USER_INFO = `${PROJECT_NAME}_${process.env.NODE_ENV}_STORAGE_CURRENT_USER_INFO`;
-
-// ***
-// 语言 storage key name
-// ***
-export const LANG_COOKIE_KEY = `${PROJECT_NAME}_${process.env.NODE_ENV}_LANG`;
 
 // ***
 // 角色

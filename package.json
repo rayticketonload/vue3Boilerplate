@@ -1,5 +1,6 @@
 {
-  "name": "project-evo-boli",
+  "name": "project_evo_boli",
+	"version": "1.0.0 beta",
   "author": "weychain_Fed",
   "description": "vue3 boilerplate",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "vuex": "^4.0.1"
   },
   "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^2.3.0",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.5",
     "chalk": "^4.1.1",

@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import chalk from 'chalk'
-import { ENV_DEV_FLAG } from '../src/helper/global'
+// import { ENV_DEV_FLAG } from '../src/helper/global'
+// import path from 'path'
+// import vueI18n from '@intlify/vite-plugin-vue-i18n'
 
 // 终端运行提示
 function noteProcess(command, mode, modeAfter) {
@@ -22,6 +24,10 @@ const viteDefaultConfig = defineConfig(
 	{
 		plugins: [
 			vue(),
+			// vueI18n({
+			// 	compositionOnly: false,
+			// 	include: path.resolve(__dirname, './path/to/src/locales/**')
+			// })
 		],
 		optimizeDeps: {
 			include: ["axios"]
@@ -35,11 +41,12 @@ const viteDefaultConfig = defineConfig(
 				{ find: '@API', replacement: '/src/api' },
 				{ find: '@ROUTER', replacement: '/src/router' },
 				{ find: '@STORE', replacement: '/src/store' },
-				{ find: '@I18N', replacement: '/src/i18n' },
 				{ find: '@HELPER', replacement: '/src/helper' },
-      	{ find: '@VIEWS', replacement: '/src/views' },
+				{ find: '@VIEWS', replacement: '/src/views' },
+      	{ find: '@COMPONENTS', replacement: '/src/components' },
 				{ find: '@STYLE', replacement: '/src/style' },
 				{ find: '@ASSETS', replacement: '/src/assets' },
+				{ find: '@I18N', replacement: '/src/i18n' },
 			]
 		},
 		css: {
@@ -60,10 +67,14 @@ export default ({ command, mode }) => {
 	switch (command) {
 		case 'serve':
 			if (mode === 'development') {
-				noteProcess(command, mode, ENV_DEV_FLAG);
+				noteProcess(
+					command,
+					mode,
+					// ENV_DEV_FLAG
+				);
 				const viteServeDevConfig = defineConfig(
 					{
-						mode: ENV_DEV_FLAG,
+						// mode: ENV_DEV_FLAG,
 						server: {
 							cors: true,
           		open: true,
