@@ -4,6 +4,11 @@
   "yong-hu-ming": "username",
   "mi-ma": "password",
   "deng-lu": "login",
-	"hui-shou-ye": "back to home"
+	"hui-shou-ye": "back to home",
+	"jian-ti-zhong-wen": "Simple chinese",
+  "deng-lu-ye-mian": "login page",
+  "qing-qiu-lan-jie-qi": "request interceptor",
+  "ce-shi-quan-ju-chang-liang": "test global const",
+  "mei-shi-ying-wen": "US english"
 }
 
