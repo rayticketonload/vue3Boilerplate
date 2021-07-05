@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-	import langSelect from '@COMPONENTS/langSelect/index.vue'
 </script>
 
 <style lang="scss">

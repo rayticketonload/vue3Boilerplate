@@ -4,7 +4,9 @@ import router from '@ROUTER';
 import store from '@STORE'
 import { i18n } from '@I18N';
 import App from '@/App.vue';
+import components from '@COMPONENTS';
 import * as global from '@HELPER/global';
+import filters from '@/filters';
 import '@STYLE/style-reset/normalize.scss';
 import '@STYLE/style-reset/element-plus-ui-reset.scss';
 
@@ -19,6 +21,8 @@ app.use(
 app.use(router);
 app.use(store);
 app.use(i18n);
+app.use(components);
+app.use(filters);
 
 app.config.globalProperties.$global = global
 
