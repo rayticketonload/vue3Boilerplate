@@ -6,46 +6,13 @@
 		<el-button @click="login()" type="primary">
 			{{ $t('deng-lu') }}
 		</el-button>
+		<el-input
+			v-model.trim="testNumber"
+			type="text"
+			v-decimals
+		/>
 		<el-calendar v-model="value" />
-		<!-- <section id="login-page-wrap">
-			<div class="login-form-container">
-				<div class="sys-name">
-					<div class="login-solgan">
-						Welcome
-					</div>
-					<div class="name">
-						{{ $t('sys-name') }}
-					</div>
-				</div>
-				<div class="login-form">
-					<div class="login-form-control-box">
-						<i class="el-icon-s-custom" :class="['login-form-control-icon', username.length > 0 ? 'focus' : '']"> </i>
-						<i class="el-icon-error" v-if="username.length > 0" :class="'login-form-control-clear'" @click="clearVmodel('username')"> </i>
-						<input @focus="clearErrorMsg" type="text" v-model.trim="username" id="username" :placeholder="$t('qing-shu-ru-yong-hu-ming')" />
-					</div>
-					<div class="login-form-control-box">
-						<i class="el-icon-key" :class="['login-form-control-icon', password.length > 0 ? 'focus' : '']"> </i>
-						<i class="el-icon-error" v-if="password.length > 0" :class="'login-form-control-clear'" @click="clearVmodel('password')"> </i>
-						<input @focus="clearErrorMsg" @keyup.enter="login()" type="password" v-model.trim="password" id="password" :placeholder="$t('qing-shu-ru-mi-ma')" />
-					</div>
-					<div class="error" v-if="errorMsg">
-						<i class="el-icon-warning" :class="'error-icon'"></i>
-						{{ errorMsg }}
-					</div>
-					<div class="login-form-btn-box">
-						<el-button @click="login()" :disabled="isDisabled" type="primary" class="login-btn">
-							{{ $t('deng-lu') }}
-						</el-button>
-					</div>
-					<div class="signup-or-change-password">
-						<span class="login-form-link right">
-							v{{ VERSION }}
-						</span>
-					</div>
-				</div>
-			</div>
-		</section> -->
-		</section>
+	</section>
 </template>
 
 <script>
@@ -63,6 +30,7 @@ export default {
 			errorMsg: null,
 			isDisabled: false,
 			value: new Date(),
+			testNumber: null,
 		};
 	},
 

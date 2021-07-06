@@ -87,7 +87,7 @@ const actions = {
 	},
 
 	[LOGOUT]: async ({ commit }, params) => {
-		const res = await api.logout(params);
+		const res = await api.user.logout(params);
 		if (res.code === 200 && res.message === 'success') {
 			commit(LOGOUT);
 			cookie.remove(LOGIN_COOKIE_KEY);

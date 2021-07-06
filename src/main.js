@@ -7,6 +7,7 @@ import App from '@/App.vue';
 import components from '@COMPONENTS';
 import * as global from '@HELPER/global';
 import filters from '@/filters';
+import directives from '@/directives';
 import '@STYLE/style-reset/normalize.scss';
 import '@STYLE/style-reset/element-plus-ui-reset.scss';
 
@@ -23,6 +24,7 @@ app.use(store);
 app.use(i18n);
 app.use(components);
 app.use(filters);
+app.use(directives);
 
 app.config.globalProperties.$global = global
 

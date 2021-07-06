@@ -1,43 +1,64 @@
 <template>
-	<!-- <default-layout>
-		<template slot="nav">
-			<role-nav></role-nav>
-		</template>
-		<template slot="header">
-			<default-header :email="email" :todoQty="toDoQty" :breadcrumb="breadcrumb"></default-header>
-		</template>
-		<template slot="router-view">
-			<router-view></router-view>
-		</template>
-	</default-layout> -->
-	<router-view></router-view>
+	<section>
+		<el-button type="primary" @click="logout()">
+			退出
+		</el-button>
+		<router-view></router-view>
+	</section>
 </template>
 
 <script>
-// import { mapState } from 'vuex';
-// import roleNav from '@LAYOUT/side-nav';
-// import defaultLayout from '@LAYOUT/default-layout/index';
-// import defaultHeader from '@LAYOUT/default-header/index';
+import { mapState, mapActions } from 'vuex';
+import { STORE_TYPE, ROUTE_NAME } from '@HELPER/global';
+
+const { LOGOUT } = STORE_TYPE;
+const { RN_LOGIN } = ROUTE_NAME;
 
 export default {
-	// components: {
-	// 	roleNav,
-	// 	defaultLayout,
-	// 	defaultHeader,
-	// },
 
-	// data() {
-	// 	return {
-	// 		toDoQty: 0,
-	// 	};
-	// },
+	computed: {
+		...mapState({
+			userId: state => state.profile.userId,
+			userName: state => state.profile.userName,
+		}),
+	},
 
-	// computed: {
-	// 	...mapState({
-	// 		email: state => state.profile.email,
-	// 		breadcrumb: state => state.component.breadcrumb,
-	// 	}),
-	// },
+	methods: {
+		...mapActions({
+			[LOGOUT]: `profile/${LOGOUT}`,
+		}),
+
+		async logout() {
+			const params = new FormData();
+			params.append('tenantId', 0);
+			params.append('userName', this.userName);
+
+			try {
+				const res = await this[LOGOUT](params);
+				if (res.code === 200 && res.message === 'success') {
+					this.$notify.success({
+						title: this.$t('deng-chu-cheng-gong'),
+						message: this.$t('fan-hui-deng-lu-ye-mian'),
+					});
+					this.$router.push({
+						name: RN_LOGIN,
+					});
+				} else {
+					this.$notify.error({
+						title: this.$t('shi-bai'),
+						message: res.data,
+					});
+				}
+			} catch (e) {
+				if (e.errorMsg) {
+					this.$notify.error({
+						title: this.$t('shi-bai'),
+						message: e.errorMsg,
+					});
+				}
+			}
+		},
+	},
 };
 </script>
 
