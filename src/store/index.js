@@ -1,9 +1,8 @@
 import { createStore, createLogger } from 'vuex'
-import { ENV_PROD_FLAG } from '@HELPER/global';
 import profile from './modules/profile';
 import component from './modules/component';
 
-const debug = import.meta.env.MODE !== ENV_PROD_FLAG;
+const debug = !import.meta.env.PROD;
 
 export default createStore({
   modules: {

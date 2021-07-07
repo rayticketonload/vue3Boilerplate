@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import chalk from 'chalk'
-// import { ENV_DEV_FLAG } from '../src/helper/global'
 // import path from 'path'
 // import vueI18n from '@intlify/vite-plugin-vue-i18n'
 

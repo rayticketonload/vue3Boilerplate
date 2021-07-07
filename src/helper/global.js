@@ -11,11 +11,6 @@ export const PROJECT_NAME = PACKAGE.name;
 // ***
 export const VERSION = PACKAGE.version;
 
-// env mode flag name
-export const ENV_DEV_FLAG = `DEV`; // 开发模式
-export const ENV_STAGE_FLAG = `STAGE`; // 测试模式
-export const ENV_PROD_FLAG = `PROD`; // 生产模式
-
 // ***
 // 登录 cookie key name
 // ***
