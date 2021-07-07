@@ -1,14 +1,16 @@
 {
   "name": "project_evo_boli",
 	"version": "1.0.0",
-  "author": "weychain_Fed",
+  "author": "weychain_fed",
   "description": "vue3 boilerplate",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "vite --host --config config/vite.config.js",
+		"stage": "vite --host --mode stage --config config/vite.config.js",
+		"prod": "vite --host --mode production --config config/vite.config.js",
     "build": "vite build --config config/vite.config.js",
-    "serve": "vite preview --host"
+    "preview": "vite preview --host"
   },
   "dependencies": {
     "axios": "^0.21.1",
